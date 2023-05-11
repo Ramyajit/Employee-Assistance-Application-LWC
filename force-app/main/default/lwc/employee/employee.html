@@ -1,0 +1,74 @@
+<template>
+    <lightning-tabset>
+        <lightning-tab label="Employee" value="Employee" class="slds-box slds-theme_shade">
+            <lightning-layout multiple-rows="true" vertical-align="end">
+              <lightning-layout-item size="4" padding="around-small">     
+                <label class="slds-form-element__label"><strong>Emp ID</strong></label> 
+           
+                <lightning-input type="text" 
+                                value={searchValue} 
+                                onchange={searchKeyword}> 
+                            </lightning-input>
+                                           </lightning-layout-item> 
+
+                        <lightning-layout-item size="2" padding="around-small">
+                
+                            <!--Search Button-->
+                          
+                            <lightning-button label="Search" variant="brand" onclick={handleSearchKeyword}>
+            
+                            </lightning-button>
+                  
+                        </lightning-layout-item>
+                    
+                    
+                
+                        <lightning-layout-item size="12" padding="around-small">
+                            <!--List Of Employee Using data Tabel-->
+                            <lightning-datatable key-field="id" data={employeesRecord} onrowaction={navigateToEditEmployeePage} columns ={cols} hide-checkbox-column="true"> 
+            
+                            </lightning-datatable>
+                        </lightning-layout-item>
+                    </lightning-layout>
+        </lightning-tab>
+       <lightning-tab label="Employee Teams" value="Employee Teams" class="slds-box slds-theme_shade">
+        <lightning-layout multiple-rows="true" vertical-align="end">
+            <lightning-layout-item size="4" padding="around-small">     
+              <label class="slds-form-element__label"><strong>Emp No</strong></label> 
+         
+              <lightning-input type="text" 
+                              value={searchValue2} 
+                              onchange={searchKeyword2}> 
+                          </lightning-input>
+                                         </lightning-layout-item> 
+
+                      <lightning-layout-item size="2" padding="around-small">
+              
+                          <!--Search Button-->
+                        
+                          <lightning-button label="Search" variant="brand" onclick={handleSearchKeyword2}>
+          
+                          </lightning-button>
+                
+                      </lightning-layout-item>
+                  
+                  
+              
+                      <lightning-layout-item size="12" padding="around-small">
+                          <!--List Of Employee Using data Tabel-->
+                          <lightning-datatable key-field="id" data={employeesRecord2} columns ={cols2} hide-checkbox-column="true"> 
+          
+                          </lightning-datatable>
+                      </lightning-layout-item>
+                  </lightning-layout>
+        </lightning-tab>
+        <lightning-tab label="Policies" value="Policies" class="slds-box slds-theme_shade">
+            <lightning-layout-item size="12" padding="around-small">
+                <!--List Of Policies Using data Tabel-->
+                <lightning-datatable key-field="id" data={policyRecord} columns ={cols3} hide-checkbox-column="true"> 
+
+                </lightning-datatable>
+            </lightning-layout-item>
+        </lightning-tab> 
+    </lightning-tabset>
+</template>

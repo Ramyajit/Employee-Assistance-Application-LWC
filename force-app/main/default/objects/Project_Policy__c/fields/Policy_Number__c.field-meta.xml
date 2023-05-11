@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policy_Number__c</fullName>
+    <description>Unique Policy Number for each Policy</description>
+    <displayFormat>P-{00}</displayFormat>
+    <externalId>false</externalId>
+    <label>Policy Number</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>
