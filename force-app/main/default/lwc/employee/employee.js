@@ -12,13 +12,12 @@ export default class CustomRecordSearch extends NavigationMixin(LightningElement
     searchValue = '';
     @api searchValue2 ;
     tabContent = '';
-    //This Funcation will get the value from Text Input from the Employee Tab.
+    //This Funcation will get the value from Text Input.
     searchKeyword(event){
         this.searchValue = event.target.value;
     }
 
 
-    //This Funcation will get the value from Text Input from the Employee Teams Tab.
     searchKeyword2(event){
         const userInput = event.target.value;
         this.searchValue2 = userInput;
@@ -26,7 +25,7 @@ export default class CustomRecordSearch extends NavigationMixin(LightningElement
 
     //This funcation will fetch the Employee Details on basis of searchkey
     handleSearchKeyword(){
-        //calling Apex method.
+        //call Apex method.
         getEmployeeList({searchKey: this.searchValue})
         .then(result => {
                 this.employeesRecord = result;
@@ -37,9 +36,8 @@ export default class CustomRecordSearch extends NavigationMixin(LightningElement
 
     }
 
-    //This funcation will fetch the Employee Details belonging to the same Project
     handleSearchKeyword2(){
-        //calling Apex method.
+        //call Apex method.
         getRelatedEmployeeList({searchKey: this.searchValue2})
         .then(result => {
                 this.employeesRecord2 = result;
@@ -50,7 +48,6 @@ export default class CustomRecordSearch extends NavigationMixin(LightningElement
 
     }
 
-    //This function is passing the Employee Id from the Second Tab, to the Controller, which will fetch the Policies related to the Same Project
     @wire(getPolicyList,{searchKey: '$searchValue2'})
     policydata({error,data}){
         if(data)
@@ -63,8 +60,6 @@ export default class CustomRecordSearch extends NavigationMixin(LightningElement
         }
     }
 
-
-    //This is the redirection of the Employee Records to their individual Edit, page opening in a form of record Page.
     navigateToEditEmployeePage(event){
         this.recordId = event.detail?.row?.Id;
     console.log('Record Id ==> '+ this.recordId);
